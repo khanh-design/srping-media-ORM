@@ -10,6 +10,5 @@ public interface IGeneralService<E> {
     E findById(int id);
 
     void save(E entity);
-    void update(E entity);
     void deleteById(int id);
 }

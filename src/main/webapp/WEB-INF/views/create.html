@@ -1,10 +1,34 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head th:replace="/layout :: head">
+    <meta charset="UTF-8">
+    <title>Title</title>
 </head>
 <body>
-$END$
+<h3>Thêm 1 sản phẩm âm nhạc</h3>
+<div class="form-container">
+    <form th:action="@{/home/save}" method="post" th:object="${songersList}">
+        <input type="hidden" th:field="*{ma}"/>
+        
+        <div>
+            <label for="nghe_sy">Nghe sy the hien</label>
+            <input type="text" id="nghe_sy" th:field="*{ngheSyTheHien}"/>
+        </div>
+        <div>
+            <label for="ten_bai_hat">Ten bai hat</label>
+            <input type="text" id="ten_bai_hat" th:field="*{tenBaiHat}"/>
+        </div>
+        <div>
+            <label for="the_loai">The loai nhac</label>
+            <input type="text" id="the_loai" th:field="*{theLoai}"/>
+        </div>
+        <div>
+            <label for="file_path">Chọn file nhạc:</label>
+            <input type="file" id="file_path" name="file" accept="audio/*" required/>
+        </div>
+        <input type="submit" value="save"/>
+    </form>
+</div>
+<footer th:replace="/layout :: footer"></footer>
 </body>
 </html>

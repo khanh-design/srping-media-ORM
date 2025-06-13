@@ -1,4 +1,15 @@
 package com.example.springmediaorm.service;
 
-public interface IGeneralService {
+import org.springframework.web.multipart.MultipartFile;
+
+import java.util.List;
+
+public interface IGeneralService<E> {
+    List<E> findAll();
+
+    E findById(int id);
+
+    void save(E entity);
+    void update(E entity);
+    void deleteById(int id);
 }

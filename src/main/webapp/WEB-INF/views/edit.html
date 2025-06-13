@@ -1,10 +1,28 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head th:replace="/layout :: head">
+    <meta charset="UTF-8">
+    <title>Edit Song</title>
 </head>
 <body>
-$END$
+<h3>Sửa thông tin bài hát</h3>
+<form th:action="@{/home/save}" method="post" enctype="multipart/form-data" th:object="${songer}">
+    <input type="hidden" th:field="*{ma}"/>
+
+    <label>Tên bài hát:</label>
+    <input type="text" th:field="*{tenBaiHat}"/><br/>
+
+    <label>Nghệ sĩ:</label>
+    <input type="text" th:field="*{ngheSyTheHien}"/><br/>
+
+    <label>Thể loại:</label>
+    <input type="text" th:field="*{theLoai}"/><br/>
+
+    <label>Chọn file mới (nếu muốn):</label>
+    <input type="file" name="file"/><br/>
+
+    <button type="submit">Cập nhật</button>
+</form>
+<footer th:replace="/layout :: footer"></footer>
 </body>
 </html>

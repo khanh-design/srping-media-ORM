@@ -1,10 +1,44 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head th:replace="/layout :: head">
+    <meta charset="UTF-8">
+    <title>Title</title>
 </head>
+<style>
+    p, a {
+        text-decoration: none;
+
+    }
+</style>
 <body>
-$END$
+<h1>Danh sach phat nhac</h1>
+<p>
+    <a th:href="@{/home/create}">Thêm 1 sản phẩm âm nhạc mới</a>
+</p>
+<table>
+    <thead>
+    <tr>
+        <th>Id</th>
+        <th>Nghe sy the hien</th>
+        <th>Ten bai hat</th>
+        <th>The loai</th>
+        <th>Duong dan</th>
+        <th colspan="2">Action</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="row, rowState : ${songersList}">
+        <td th:text="${rowState.count}"></td>
+        <td th:text="${row.ngheSyTheHien}"></td>
+        <td th:text="${row.tenBaiHat}"></td>
+        <td th:text="${row.theLoai}"></td>
+        <td>
+            <audio controls th:src="@{'/uploads/' + ${row.filePath}}"></audio>
+        </td>
+        <td><a th:href="@{/home/{id}/edit(id=${row.getMa()})}">edit</a></td>
+        <td><a th:href="@{/home/{id}/delete(id=${row.getMa()})}">delete</a></td>
+    </tr>
+    </tbody>
+</table>
 </body>
 </html>

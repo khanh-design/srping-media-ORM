@@ -1,4 +1,4 @@
-package com.example.srpingmediaorm.model;
+package com.example.springmediaorm.model;
 
 import javax.persistence.*;
 

@@ -1,4 +1,4 @@
-package com.example.srpingmediaorm.configuration;
+package com.example.springmediaorm.configuration;
 
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
 
